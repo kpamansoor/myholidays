@@ -4,7 +4,18 @@ var config = require("./config");
 
 var pool = mysql.createPool(config.mySqlDbSettings);
 var app = express();
-
+app.use(function (request, response, next) {
+    //console.log("hit------------------- " + request);
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    response.header("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
+    //Access-Control-Allow-Origin: http://api.bob.com
+    response.header('Access-Control-Allow-Credentials', true);
+    response.header('Access-Control-Max-Age', '86400');
+    //response.sendFile(__dirname + '/client/index.html');
+    //response.redirect('/index.html');
+    next();
+});
 app.get("/getHolidayList", function (req, res) {
     getHolidayList(req, res);
 

@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "mansoor.holiday"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "mansoor.holiday"
         }
     },
     "dependent_plugins": {}
