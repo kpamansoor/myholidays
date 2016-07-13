@@ -10,4 +10,9 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: "pages/home.html",
             controller: "homeController"
         })
+        .state('/settings', { //State demonstrating Nested views
+            url: "/settings",
+            templateUrl: "pages/settings.html",
+            controller: "settingsController"
+        });
 }]);
