@@ -14,5 +14,15 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: "/settings",
             templateUrl: "pages/settings.html",
             controller: "settingsController"
+        })
+        .state('/public_holiday', { //State demonstrating Nested views
+            url: "/public_holiday",
+            templateUrl: "pages/public_holiday.html",
+            controller: "publicHolidayController"
+        })
+        .state('/comp_off', { //State demonstrating Nested views
+            url: "/comp_off",
+            templateUrl: "pages/comp_off.html",
+            controller: "compOffController"
         });
 }]);
