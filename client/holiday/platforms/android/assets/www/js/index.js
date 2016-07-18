@@ -34,44 +34,29 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
-        //        window.sqlitePlugin.openDatabase({
+        //        var db = window.sqlitePlugin.openDatabase({
         //            name: 'holiday.db',
         //            location: 'default'
-        //        }, function (db) {
-        //
-        //            db.executeSql("CREATE TABLE holiday(date text PRIMARY KEY,day TEXT,comment text,holiday text);", [], function (resultSet) {
-        //                db.close();
-        //            }, function (error) {
-        //                console.log('SELECT error: ' + error.message);
-        //                db.close();
-        //            });
-        //
-        //
-        //        }, function (err) {
-        //            console.log('Open database ERROR: ' + JSON.stringify(err));
         //        });
-        var db = window.sqlitePlugin.openDatabase({
-            name: 'holiday.db',
-            location: 'default'
-        });
-        db.transaction(function (tx) {
-            tx.executeSql("CREATE TABLE holiday(date text PRIMARY KEY,day TEXT,comment text,holiday text);", [], function (tx, res) {
-
-            });
-        }, function (error) {
-            // OK to close here:
-            console.log('transaction error: ' + error.message);
-            db.close();
-        }, function () {
-            // OK to close here:
-            console.log('transaction ok');
-            db.close(function () {
-                console.log('database is closed ok');
-            });
-        });
+        //        db.transaction(function (tx) {
+        //            tx.executeSql("CREATE TABLE holiday(date text PRIMARY KEY,day TEXT,comment text,holiday text);", [], function (tx, res) {
+        //
+        //            });
+        //        }, function (error) {
+        //            // OK to close here:
+        //            console.log('transaction error: ' + error.message);
+        //            db.close();
+        //        }, function () {
+        //            // OK to close here:
+        //            console.log('transaction ok');
+        //            db.close(function () {
+        //                console.log('database is closed ok');
+        //            });
+        //        });
     }
 };
 

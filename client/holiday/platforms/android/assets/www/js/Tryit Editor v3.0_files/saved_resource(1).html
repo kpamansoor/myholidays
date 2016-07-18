@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://www.w3schools.com/js/tryit.asp?filename=tryjs_oper -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body contenteditable="false">
+
+<h1>JavaScript Operators</h1>
+
+<p>x = 5, y = 2, calculate z = x + y, and display z:</p>
+
+<p id="demo"></p>
+
+<script>
+var ops=['+','-','*'];
+
+//random operator
+
+var random = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+rnum1=Math.floor(Math.random() * (10 - 0 + 1)) + 0;
+rnum2=Math.floor(Math.random() * (10 - 0 + 1)) + 0;
+var operator = ops[random];
+
+
+var res;
+switch (random){
+  case 0: res=rnum1+rnum2; text=rnum1+rnum2+""; break;
+  case 1: res=rnum1-rnum2; text=rnum1-rnum2+""; break;
+  case 2: res=rnum1*rnum2; text=rnum1*rnum2+""; break;
+}
+alert(text);
+</script>
+
+
+
+
+</body></html>

@@ -24,5 +24,23 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: "/comp_off",
             templateUrl: "pages/comp_off.html",
             controller: "compOffController"
+        })
+        .state('/my_leaves', { //State demonstrating Nested views
+            url: "/my_leaves",
+            templateUrl: "pages/my_leaves.html",
+            controller: "myLeavesController"
         });
 }]);
+
+App.run(function ($location) {
+    document.addEventListener("backbutton", function (e) {
+        if ($location.path() == "/business") {
+            e.preventDefault();
+            navigator.app.exitApp();
+        } else {
+            $('.modal-backdrop').remove();
+            navigator.app.backHistory();
+        }
+
+    }, false);
+});

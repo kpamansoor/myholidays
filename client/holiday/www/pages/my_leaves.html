@@ -1,0 +1,98 @@
+<div>
+    <div style="padding: 0px 12px 0px 12px;">
+        <div ng-repeat="leave in my_leaves">
+            <div class="w3-card-4 card">
+                <div class="row" data-toggle="modal" data-target="#details" ng-click="select($index)" id="swipable">
+                    <div class="col-sm-3 col-xs-3">{{leave.date}}</div>
+                    <div class="col-sm-3 col-xs-3">{{leave.comment | cut:10:'...'}}</div>
+                    <div class="col-sm-4 col-xs-4 margin_top"><span class="label label-primary">{{leave.comp_adjusted}}</span><span class="label label-info">{{leave.type}}</span></div>
+                    <div class="col-sm-1 col-xs-1 margin_top" ng-click="delate($index);" data-toggle="modal" data-target="#del_my_leaves"><span class="glyphicon glyphicon-trash text-muted"></span></div>
+                </div>
+            </div>
+            <br>
+
+        </div>
+        <div class="round-button" style="position: fixed; bottom: 25px; right: 25px;" data-toggle="modal" data-target="#add_my_leaves">
+            <div class="round-button-circle"><a class="round-button">+</a></div>
+        </div>
+    </div>
+    <div id="add_my_leaves" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="text-align: center;">
+                <div class="modal-header" style="background-color: blue;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Add a leave</b></span>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 margin_top">Leave date</div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <input size="16" type="date" id="my_leave_date" class="form_datetime form-control" ng-model="date">
+                        </div>
+                    </div>
+                    <div class="row" ng-show="type=='anual'">
+                        <div class="col-sm-6 col-xs-6 margin_top">
+                            <label class="margin_top">Adjust comp off :</label>
+                        </div>
+                        <div class="col-sm-6 col-xs-6 margin_top">
+                            <input type="checkbox" name="toggle" id="toggle" ng-model="adj_comp" style="display:none">
+                            <label for="toggle">hello</label>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="adj_comp">
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <select class="form-control" id="comp_adjusted_date" required>
+                                <option value="" disabled selected>Select comp off date</option>
+                                <option ng-selected="" ng-repeat="items in available_comp_off" value="{{items}}">
+                                    {{items}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="!adj_comp">
+                        <div class="col-sm-6 col-xs-12 margin_top">Leave type</div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <select class="form-control" ng-model="type" required>
+                                <option value="anual" selected>Anual</option>
+                                <option value="medical">Medical</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 margin_top">Comment</div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <input maxlength="50" type="text" id="" class="form-control" ng-model="comment">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="add_my_leaves();">Add</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="del_my_leaves" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="text-align: center;">
+                <div class="modal-header" style="background-color: blue;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Confirm delete leave ?</b></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="confirm_delate();">Delete</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
