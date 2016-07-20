@@ -1,7 +1,7 @@
 App.controller('appController', function ($scope, $rootScope) {
 
-    //    $rootScope.serverUrl = "http://localhost:3000/";
-    $rootScope.serverUrl = "http://13.92.189.238:3000/";
+    $rootScope.serverUrl = "http://localhost:3000/";
+    //    $rootScope.serverUrl = "http://13.92.189.238:3000/";
     $rootScope.loader = false;
     $rootScope.titletext = "";
 
@@ -70,15 +70,19 @@ App.controller('settingsController', function ($scope, $http, $rootScope) {
         if ($scope.answer == $scope.answer_entered)
             $scope.confirm_button = true;
     }
-    $scope.clear_cache = function () {
-        localStorage.setItem("holiday_list", "");
-        localStorage.setItem("country", "");
-        localStorage.setItem("comp_off", "");
-        localStorage.setItem("my_leaves", "");
-        $('#clear_data').modal('toggle');
+    $scope.clear_myleaves = function () {
+        localStorage.removeItem("my_leaves");
+        $('#clear_myleaves').modal('toggle');
         $scope.confirm_button = false;
         $scope.answer_entered = "";
-        $scope.infoSuccess.log("All date erased.");
+        $scope.infoSuccess.log("Leaves deleted.");
+    }
+    $scope.clear_compoff = function () {
+        localStorage.removeItem("comp_off");
+        $('#clear_compoff').modal('toggle');
+        $scope.confirm_button = false;
+        $scope.answer_entered = "";
+        $scope.infoSuccess.log("Comp off deleted.");
     }
     $scope.generate_capcha = function () {
         var ops = ['+', '-', '*'];
@@ -102,7 +106,6 @@ App.controller('settingsController', function ($scope, $http, $rootScope) {
                 break;
         }
         $scope.question = rnum1 + " " + operator + " " + rnum2 + " ?";
-        $scope.answer = res;
     }
 
 });
@@ -170,15 +173,31 @@ App.controller('compOffController', function ($scope, $http, $rootScope) {
         if (duplicate) {
             $scope.infoError.log("Comp off already added");
         } else {
-            $scope.comp_off.push({
-                "date": d,
-                "comment": $scope.comment,
-                "used": false
-            });
-            localStorage.setItem("comp_off", JSON.stringify($scope.comp_off));
-            $scope.infoSuccess.log("Comp off added");
-            $('#add_comp_off').modal('toggle');
-            $scope.updateProgressBar();
+            var duplicate = false;
+            $scope.my_leaves = JSON.parse(localStorage.getItem("my_leaves"));
+            if ($scope.my_leaves == null)
+                $scope.my_leaves = [];
+
+            for (i = 0; i < $scope.my_leaves.length; i++) {
+                if ($scope.my_leaves[i].date == d) {
+                    duplicate = true;
+                    break;
+                }
+            }
+            if (duplicate) {
+                $scope.infoError.log("A leave entry exist in the same date");
+            } else {
+                $scope.comp_off.push({
+                    "date": d,
+                    "comment": $scope.comment,
+                    "used": false
+                });
+                localStorage.setItem("comp_off", JSON.stringify($scope.comp_off));
+                $scope.infoSuccess.log("Comp off added");
+                $('#add_comp_off').modal('toggle');
+                $scope.updateProgressBar();
+                $scope.date = "";
+            }
         }
 
     }
@@ -189,8 +208,20 @@ App.controller('compOffController', function ($scope, $http, $rootScope) {
     $scope.confirm_delate = function () {
 
         $scope.compoff = JSON.parse(localStorage.getItem("comp_off"));
+        var item = $scope.compoff[$scope.delete_item].date;
         $scope.compoff.splice($scope.delete_item, 1);
         localStorage.setItem("comp_off", JSON.stringify($scope.compoff));
+
+        // dettaching from leaves taken.
+        $scope.my_leaves = JSON.parse(localStorage.getItem("my_leaves"));
+        for (i = 0; i < $scope.my_leaves.length; i++) {
+            if ($scope.my_leaves[i].comp_adjusted == item) {
+                $scope.my_leaves[i].comp_adjusted = ""
+                localStorage.setItem("my_leaves", JSON.stringify($scope.my_leaves));
+                break;
+            }
+        }
+
         $scope.infoSuccess.log("Comp off deleted");
         $('#del_comp_off').modal('toggle');
         $scope.updateProgressBar();

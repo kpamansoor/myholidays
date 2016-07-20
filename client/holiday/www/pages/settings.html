@@ -20,30 +20,67 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading" data-toggle="modal" data-target="#clear_data" ng-click="generate_capcha();">Clear data</div>
+
+    <div class="row">
+        <div class="col-sm-6 col-xs-6 margin_top">
+            <div class="panel panel-primary">
+                <div class="panel-heading" data-toggle="modal" data-target="#clear_myleaves" ng-click="generate_capcha();" style="    text-align: center;">Clear My Leaves</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-6 margin_top">
+            <div class="panel panel-primary">
+                <div class="panel-heading" data-toggle="modal" data-target="#clear_compoff" ng-click="generate_capcha();" style="    text-align: center;">Clear Comp off</div>
+            </div>
+        </div>
     </div>
-    <div id="clear_data" class="modal fade" role="dialog">
+    <div id="clear_myleaves" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content" style="text-align: center;">
-                <div class="modal-header" style="background-color: blue;">
+                <div class="modal-header" style="background-color: #337ab7;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Confirm.</b></span>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-12 col-xs-12 margin_top">Clearing data will erase public holidays, leaves and com offs. If you are sure, answer the question below.</div>
-                        <div class="col-sm-12 col-xs-6 margin_top">{{question}}</div>
+                        <div class="col-sm-12 col-xs-12 margin_top">On confirm, all the leave detailes will be <span class="label label-danger">deleted</span>. Answer the question below to proceed.</div>
+                        <div class="col-sm-12 col-xs-6 margin_top" style="font-size: 1.5em;">{{question}}</div>
                         <div class="col-sm-12 col-xs-6 margin_top">
-                            <input maxlength="5" type="number" id="" class="form-control" ng-model="answer_entered" placeholder="Type the answer here" ng-change="validate_answer();">
+                            <input maxlength="2" type="number" id="" class="form-control" ng-model="answer_entered" placeholder="Type the answer here" ng-change="validate_answer();">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="clear_cache();" ng-disabled="!confirm_button">Confirm</button>
+                    <button type="button" class="btn btn-primary" ng-click="clear_myleaves();" ng-disabled="!confirm_button">Confirm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="clear_compoff" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="text-align: center;">
+                <div class="modal-header" style="background-color: #337ab7;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Confirm.</b></span>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 margin_top">On confirm, all the comp off detailes will be <span class="label label-danger">deleted</span>. Answer the question below to proceed.</div>
+                        <div class="col-sm-12 col-xs-6 margin_top" style="font-size: 1.5em;">{{question}}</div>
+                        <div class="col-sm-12 col-xs-6 margin_top">
+                            <input maxlength="2" type="number" id="" class="form-control" ng-model="answer_entered" placeholder="Type the answer here" ng-change="validate_answer();">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="clear_compoff();" ng-disabled="!confirm_button">Confirm</button>
                 </div>
             </div>
 
