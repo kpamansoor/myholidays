@@ -73,6 +73,11 @@ App.controller('settingsController', function ($scope, $http, $rootScope) {
     $scope.clear_myleaves = function () {
         localStorage.removeItem("my_leaves");
         $('#clear_myleaves').modal('toggle');
+        $scope.comp_off = JSON.parse(localStorage.getItem("comp_off"));
+        for (i = 0; i < $scope.comp_off.length; i++) {
+            $scope.comp_off[i].used = false;
+        }
+        localStorage.setItem("comp_off", JSON.stringify($scope.comp_off));
         $scope.confirm_button = false;
         $scope.answer_entered = "";
         $scope.infoSuccess.log("Leaves deleted.");
@@ -80,6 +85,11 @@ App.controller('settingsController', function ($scope, $http, $rootScope) {
     $scope.clear_compoff = function () {
         localStorage.removeItem("comp_off");
         $('#clear_compoff').modal('toggle');
+        $scope.my_leaves = JSON.parse(localStorage.getItem("my_leaves"));
+        for (i = 0; i < $scope.my_leaves.length; i++) {
+            $scope.my_leaves[i].comp_adjusted = "";
+        }
+        localStorage.setItem("my_leaves", JSON.stringify($scope.my_leaves));
         $scope.confirm_button = false;
         $scope.answer_entered = "";
         $scope.infoSuccess.log("Comp off deleted.");
