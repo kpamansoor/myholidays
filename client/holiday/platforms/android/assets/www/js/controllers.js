@@ -1,7 +1,7 @@
 App.controller('appController', function ($scope, $rootScope) {
 
-    $rootScope.serverUrl = "http://localhost:3000/";
-    //    $rootScope.serverUrl = "http://13.92.189.238:3000/";
+    //    $rootScope.serverUrl = "http://localhost:3000/";
+    $rootScope.serverUrl = "http://13.92.189.238:3000/";
     $rootScope.loader = false;
     $rootScope.titletext = "";
 
@@ -283,7 +283,11 @@ App.controller('myLeavesController', function ($scope, $http, $rootScope) {
     var maxDate = year + '-' + month + '-' + day;
     $('#my_leave_date').attr('max', maxDate);
 
-
+    if (AdMob) AdMob.prepareInterstitial({
+        adId: $rootScope.admobid.interstitial,
+        isTesting: true,
+        autoShow: false
+    });
     $scope.add_my_leaves = function (id) {
 
         var duplicate = false;
@@ -365,7 +369,7 @@ App.controller('myLeavesController', function ($scope, $http, $rootScope) {
         localStorage.setItem("my_leaves", JSON.stringify($scope.my_leaves));
         $scope.infoSuccess.log("Leave deleted");
         $scope.my_leaves = JSON.parse(localStorage.getItem("my_leaves"));
-        $rootScope.titletext = "My Leaves ( total " + $scope.compoff.length + " )";
+        $rootScope.titletext = "My Leaves ( total " + $scope.my_leaves.length + " )";
         $('#del_my_leaves').modal('toggle');
     }
 
