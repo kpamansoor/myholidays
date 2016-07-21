@@ -1,10 +1,13 @@
 <div>
     <div style="padding: 0px 12px 0px 12px;">
+        <div class="panel panel-info" ng-hide="holidays.length > 0">
+            <div class="panel-heading" style="text-align: center;color: #337ab7;"><a href="#settings">Tap here to configure</a></div>
+        </div>
         <div ng-repeat="holiday in holidays">
             <div class="w3-card-4 card">
                 <div class="row" data-toggle="modal" data-target="#details" ng-click="select($index)">
                     <div class="col-sm-3 col-xs-3">{{holiday.date}}</div>
-                    <div class="col-sm-2 col-xs-2">{{holiday.day}}</div>
+                    <div class="col-sm-2 col-xs-2">{{holiday.day | cut:3:' '}}</div>
                     <div class="col-sm-5 col-xs-5">
                         {{holiday.holiday | cut:15:'...'}}
                     </div>

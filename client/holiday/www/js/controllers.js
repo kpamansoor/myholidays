@@ -21,6 +21,9 @@ App.controller('appController', function ($scope, $rootScope) {
 });
 App.controller('homeController', function ($scope, $rootScope) {
     $rootScope.titletext = "";
+    $scope.my_leaves = JSON.parse(localStorage.getItem("my_leaves"));
+    $scope.comp_off = JSON.parse(localStorage.getItem("comp_off"));
+    $scope.holidays = JSON.parse(localStorage.getItem("holiday_list"));
 });
 
 App.controller('settingsController', function ($scope, $http, $rootScope) {
@@ -121,7 +124,9 @@ App.controller('settingsController', function ($scope, $http, $rootScope) {
 });
 
 App.controller('publicHolidayController', function ($scope, $http, $rootScope) {
-    $rootScope.titletext = "Public holiday - " + localStorage.getItem("country");
+    $rootScope.titletext = "Public holiday ";
+    if (localStorage.getItem("country") != null)
+        $rootScope.titletext += "- " + localStorage.getItem("country");
     $scope.holidays = JSON.parse(localStorage.getItem("holiday_list"));
 
     $scope.select = function (id) {

@@ -1,12 +1,12 @@
 <div>
     <div style="padding: 0px 12px 0px 12px;">
-        <div class="w3-card-4 card" ng-show="compoff != undefined || compoff.length > 0">
+        <div class="w3-card-4 card" ng-show="compoff != null || compoff.length > 0">
             <div class="row">
-                <div class="col-sm-6 col-xs-6">Total : {{compoff.length}}</div>
                 <div class="col-sm-6 col-xs-6">Used : {{comp_off_taken}}</div>
+                <div class="col-sm-6 col-xs-6" style="text-align: right;">Total : {{compoff.length}}</div>
             </div>
             <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{comp_off_percentage}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( comp_off_percentage + '%' ) }">
+                <div class="progress-bar progress-bar-success" ng-style="{width : ( comp_off_percentage + '%' ) }">
                     <span class="sr-only"></span>
                 </div>
             </div>
@@ -35,7 +35,7 @@
 
             <!-- Modal content-->
             <div class="modal-content" style="text-align: center;">
-                <div class="modal-header" style="background-color: blue;">
+                <div class="modal-header" style="background-color: #337ab7;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Add comp off</b></span>
                 </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="add_comp_of();">Add</button>
+                    <button type="button" class="btn btn-primary" ng-click="add_comp_of();" ng-disabled="date.length == 0">Add</button>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
 
             <!-- Modal content-->
             <div class="modal-content" style="text-align: center;">
-                <div class="modal-header" style="background-color: blue;">
+                <div class="modal-header" style="background-color: #337ab7;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>Confirm delete comp off ?</b></span>
                 </div>

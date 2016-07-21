@@ -1,35 +1,24 @@
-<!--
-<div>
-    <div class="center">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 margin_top">
-                <button class="block" type="button"><span>Button</span></button>
-            </div>
-            <div class="col-sm-12 col-xs-12 margin_top">
-                <button class="block orange" type="button"><span>Medium-length button</span></button>
-            </div>
-            <div class="col-sm-12 col-xs-12 margin_top">
-                <button class="block red" type="button"><span>Extra-long button to let you appreciate the effect.</span></button>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
 <div class="outer">
     <div class="middle">
         <div class="inner">
-            <div class="row">
-
-                <a class="block col-sm-12 col-xs-12 margin_top" href="#settings" type="button"><span>Button</span></a>
-
-                <a class="block col-sm-12 col-xs-12 margin_top" href="#public_holiday" type="button"><span>Medium-length button</span></a>
-
-                <a class="block red col-sm-12 col-xs-12 margin_top" href="#comp_off" type="button"><span>Extra-long button to let you appreciate the effect.</span></a>
-                <a class="block red col-sm-12 col-xs-12 margin_top" href="#my_leaves" type="button"><span>Extra-long button to let you appreciate the effect.</span></a>
-
-            </div>
-
+            <nav>
+                <ul>
+                    <div class="row" style="margin:5px;">
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <li><a class="brick dashboard" href="#public_holiday"><span class='icon ion-home'>{{holidays.length}}</span>Public Holidays</a></li>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <li><a class="brick pages" href="#my_leaves"><span class='icon ion-document'>{{my_leaves.length}}</span>My Leaves</a></li>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <li><a class="brick navigation" href="#comp_off"><span class='icon ion-android-share-alt'>{{comp_off.length}}</span>Comp Off</a></li>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 margin_top">
+                            <li><a class="brick users" href="#settings"><span class='icon ion-person'><span class="glyphicon glyphicon-cog" style="margin-top: 15;"></span></span>Settings</a></li>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

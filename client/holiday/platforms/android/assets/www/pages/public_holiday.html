@@ -1,14 +1,15 @@
 <div>
     <div style="padding: 0px 12px 0px 12px;">
+        <div class="panel panel-info" ng-hide="holidays.length > 0">
+            <div class="panel-heading" style="text-align: center;color: #337ab7;"><a href="#settings">Tap here to configure</a></div>
+        </div>
         <div ng-repeat="holiday in holidays">
             <div class="w3-card-4 card">
                 <div class="row" data-toggle="modal" data-target="#details" ng-click="select($index)">
-                    <div class="col-sm-1 col-xs-1"></div>
-                    <div class="col-sm-2 col-xs-2">{{holiday.date}}</div>
-                    <div class="col-sm-3 col-xs-3">
-                        <div class="foo purple"></div>{{holiday.day}}</div>
+                    <div class="col-sm-3 col-xs-3">{{holiday.date}}</div>
+                    <div class="col-sm-2 col-xs-2">{{holiday.day | cut:3:' '}}</div>
                     <div class="col-sm-5 col-xs-5">
-                        {{holiday.holiday | cut:20:'...'}}
+                        {{holiday.holiday | cut:15:'...'}}
                     </div>
                     <div class="col-sm-1 col-xs-1">
                         <span class="glyphicon glyphicon-chevron-right text-primary"></span>
@@ -24,7 +25,7 @@
 
             <!-- Modal content-->
             <div class="modal-content" style="text-align: center;">
-                <div class="modal-header" style="background-color: blue;">
+                <div class="modal-header" style="background-color: #337ab7;">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <span class="modal-title" style="color:#FFF;font-size: 1.5em;"><b>{{selected.holiday}}</b></span>
                 </div>

@@ -278,3 +278,189 @@ div[data-toggle="buttons"] label.active {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+a {
+    text-decoration: none;
+    color: #fff;
+}
+.brick {
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    background-color: #e7e7e7;
+    vertical-align: top;
+    -webkit-box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.75);
+}
+.icon {
+    display: inline-block;
+    float: right;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+    text-align: center;
+}
+header > hgroup {
+    margin-bottom: 32px;
+    color: #fff;
+}
+header h1 {
+    margin-bottom: 0;
+    font-size: 28px;
+}
+header a {
+    color: #a93447;
+}
+nav {
+    margin-bottom: 32px;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a.brick {
+    position: relative;
+    font-family: inherit;
+    font-weight: inherit;
+    color: #616161;
+    color: #252326;
+    line-height: 2;
+    background-color: #252326;
+    background-color: #F3F3F3;
+    background-color: #e7e7e7;
+    border-left: 3px solid #616161
+}
+nav ul li a.brick .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 63px;
+    width: 63px;
+    font-size: 2em;
+    color: #fff;
+    line-height: 2.25;
+    background: #616161;
+}
+nav ul li a.dashboard {
+    border-color: #B93861;
+}
+nav ul li a.dashboard .icon {
+    background-color: #B93861;
+}
+nav ul li a.pages {
+    border-color: #34ABD7;
+}
+nav ul li a.pages .icon {
+    background-color: #34ABD7;
+}
+nav ul li a.navigation {
+    border-color: #158A53;
+}
+nav ul li a.navigation .icon {
+    background-color: #158A53;
+}
+nav ul li a.users {
+    border-color: #D95235;
+}
+nav ul li a.users .icon {
+    background-color: #D95235;
+}
+nav ul li a.settings {
+    /*border-color: #34ABD7;*/
+}
+nav ul li a.settings .icon {
+    /*background-color: #34ABD7;*/
+}
+#content > header {
+    position: relative;
+    padding: 0px 72px 0px 0px;
+}
+#content .brick {
+    position: relative;
+}
+#content .brick .close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: #616161;
+}
+#content.pages .brick.title {
+    height: 120px;
+    border-left: 8px solid #34ABD7;
+}
+#content.pages .brick.identify {
+    display: none;
+}
+#content.pages .brick.save {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 64px;
+    height: 54px;
+    min-height: 54px;
+    margin-right: 0;
+    color: #fff;
+    background: #158A53;
+}
+#content.pages .brick.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 64px;
+    height: 54px;
+    min-height: 54px;
+    margin-right: 0;
+    color: #fff;
+    background: #616161;
+}
+#content.pages .brick.save .icon,
+#content.pages .brick.close .icon {
+    line-height: 1;
+}
+#content .brick.closed {
+    width: 120px;
+    height: 120px;
+}
+#content .brick.closed hgroup a {
+    display: none;
+}
+#content .brick.closed form {
+    display: none;
+}
+#content .brick form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+    padding: 16px;
+    border: 1px solid #666;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+#content .brick form input[type="text"] {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #666;
+    font-size: 1.5em;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+@media all and (max-width: 799px) {
+    #content.pages .brick.close .text,
+    #content.pages .brick.save .text {
+        display: none;
+    }
+}
+a:link {
+    text-decoration: none;
+}
