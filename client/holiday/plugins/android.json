@@ -12,7 +12,14 @@
         },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "mansoor.holiday"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "mansoor.holiday"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "mansoor.holiday"
+        }
+    }
 }
