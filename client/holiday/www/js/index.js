@@ -68,7 +68,7 @@ App.controller('appController', function ($scope, $rootScope) {
 
     if (AdMob) AdMob.prepareInterstitial({
         adId: $rootScope.admobid.interstitial,
-        isTesting: true,
+        isTesting: false,
         autoShow: false
     });
     //    $rootScope.serverUrl = "http://localhost:3000/";
@@ -212,6 +212,7 @@ App.controller('publicHolidayController', function ($scope, $http, $rootScope) {
     $scope.select = function (id) {
         $scope.selected = $scope.holidays[id];
     }
+    if (AdMob) AdMob.showInterstitial();
 
 });
 
@@ -249,7 +250,7 @@ App.controller('compOffController', function ($scope, $http, $rootScope) {
     var maxDate = year + '-' + month + '-' + day;
     $('#comp_date').attr('max', maxDate);
 
-
+    if (AdMob) AdMob.showInterstitial();
     $scope.add_comp_of = function (id) {
 
         var duplicate = false;

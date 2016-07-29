@@ -15,6 +15,9 @@
         },
         "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "mansoor.holiday"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "mansoor.holiday"
         }
     },
     "dependent_plugins": {

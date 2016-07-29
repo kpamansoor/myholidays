@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"com.rjfun.cordova.admob.AdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -57,6 +61,9 @@
         },
         "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "mansoor.holiday"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "mansoor.holiday"
         }
     },
     "dependent_plugins": {},
@@ -74,12 +81,20 @@
             "clobbers": [
                 "window.AdMob"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "clobbers": [
+                "navigator.splashscreen"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-sqlite-storage": "1.4.5",
         "cordova-plugin-extension": "1.5.1",
-        "cordova-plugin-admobpro": "2.18.0"
+        "cordova-plugin-admobpro": "2.18.0",
+        "cordova-plugin-splashscreen": "3.2.2"
     }
 }
